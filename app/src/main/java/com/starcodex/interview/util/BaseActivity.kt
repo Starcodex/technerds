@@ -13,4 +13,13 @@ open class BaseActivity : AppCompatActivity() {
         setContentView(R.layout.register_activity)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
+    fun alertDisplayer(title: String, message: String, listener : DialogInterface.OnClickListener) {
+        val builder: AlertDialog.Builder = AlertDialog.Builder (this)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton("OK", listener)
+        val ok: AlertDialog = builder.create()
+        ok.show()
+    }
 }

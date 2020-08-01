@@ -14,7 +14,7 @@ import com.starcodex.interview.list.ContactListActivity
 import com.starcodex.interview.util.BaseActivity
 import kotlinx.android.synthetic.main.login_activity.*
 
-class LoginActivity: AppCompatActivity() {
+class LoginActivity: BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +43,6 @@ class LoginActivity: AppCompatActivity() {
         })
     }
 
-    fun alertDisplayer(title: String, message: String, listener : DialogInterface.OnClickListener) {
-        val builder: AlertDialog.Builder = AlertDialog.Builder (this)
-            .setTitle(title)
-            .setMessage(message)
-            .setPositiveButton("OK", listener)
-        val ok: AlertDialog = builder.create()
-        ok.show()
-    }
 
     fun register(view: View){
         val intent = Intent(this@LoginActivity, RegisterActivity::class.java)

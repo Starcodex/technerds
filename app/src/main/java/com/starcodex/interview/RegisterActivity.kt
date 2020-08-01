@@ -16,7 +16,7 @@ import com.starcodex.interview.util.BaseActivity
 import kotlinx.android.synthetic.main.register_activity.*
 
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class RegisterActivity : AppCompatActivity() {
     fun registerUser(view: View){
 
         val user = ParseUser()
-// Set the user's username and password, which can be obtained by a forms
+        // Set the user's username and password, which can be obtained by a forms
         user.setUsername(userName.text.toString())
         user.setPassword(password.text.toString())
         user.signUpInBackground(object: SignUpCallback {
@@ -66,15 +66,6 @@ class RegisterActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    fun alertDisplayer(title: String, message: String, listener : DialogInterface.OnClickListener) {
-        val builder: AlertDialog.Builder = AlertDialog.Builder (this)
-            .setTitle(title)
-            .setMessage(message)
-            .setPositiveButton("OK", listener)
-        val ok: AlertDialog = builder.create()
-        ok.show()
     }
 
     fun goToLogin(view: View){
